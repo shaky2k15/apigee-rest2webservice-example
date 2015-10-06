@@ -1,0 +1,23 @@
+{
+	"apiProxyName": "BLZService",
+	"apiProxyType": "REST",
+	"targetNamespace": "http://thomas-bayer.com/blz/",
+	"resources": [
+		{
+			"name": "getBank",
+			"documentationContent": "",
+			"method": "GET",
+			"path": "/bank",
+			"inputList": [
+				{
+					"name": "blz",
+					"type": "string",
+					"minOccurs": "1",
+					"maxOccurs": "1",
+					"enumValues": ""
+				}
+			],
+			"soapPayload": "<soap:Envelope xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\">\n    <soap:Body>\n        <getBank xmlns=\"http://thomas-bayer.com/blz/\">\n            <!--Required-->\n            <blz>{blz}</blz>\n        </getBank>\n    </soap:Body>\n</soap:Envelope>"
+		}
+	]
+}

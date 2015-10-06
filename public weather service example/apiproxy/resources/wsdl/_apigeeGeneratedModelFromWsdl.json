@@ -1,0 +1,47 @@
+{
+	"apiProxyName": "Weather",
+	"apiProxyType": "REST",
+	"targetNamespace": "http://ws.cdyne.com/WeatherWS/",
+	"resources": [
+		{
+			"name": "GetWeatherInformation",
+			"documentationContent": "Gets Information for each WeatherID",
+			"method": "GET",
+			"path": "/weatherinformation",
+			"inputList": [],
+			"soapPayload": "<soap:Envelope xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\">\n    <soap:Body>\n        <GetWeatherInformation xmlns=\"http://ws.cdyne.com/WeatherWS/\">\n        </GetWeatherInformation>\n    </soap:Body>\n</soap:Envelope>"
+		},
+		{
+			"name": "GetCityForecastByZIP",
+			"documentationContent": "Allows you to get your City Forecast Over the Next 7 Days, which is updated hourly. U.S. Only",
+			"method": "GET",
+			"path": "/cityforecastbyzip",
+			"inputList": [
+				{
+					"name": "ZIP",
+					"type": "string",
+					"minOccurs": "0",
+					"maxOccurs": "1",
+					"enumValues": ""
+				}
+			],
+			"soapPayload": "<soap:Envelope xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\">\n    <soap:Body>\n        <GetCityForecastByZIP xmlns=\"http://ws.cdyne.com/WeatherWS/\">\n            <!--Optional-->\n            <ZIP>{ZIP}</ZIP>\n        </GetCityForecastByZIP>\n    </soap:Body>\n</soap:Envelope>"
+		},
+		{
+			"name": "GetCityWeatherByZIP",
+			"documentationContent": "Allows you to get your City's Weather, which is updated hourly. U.S. Only",
+			"method": "GET",
+			"path": "/cityweatherbyzip",
+			"inputList": [
+				{
+					"name": "ZIP",
+					"type": "string",
+					"minOccurs": "0",
+					"maxOccurs": "1",
+					"enumValues": ""
+				}
+			],
+			"soapPayload": "<soap:Envelope xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\">\n    <soap:Body>\n        <GetCityWeatherByZIP xmlns=\"http://ws.cdyne.com/WeatherWS/\">\n            <!--Optional-->\n            <ZIP>{ZIP}</ZIP>\n        </GetCityWeatherByZIP>\n    </soap:Body>\n</soap:Envelope>"
+		}
+	]
+}

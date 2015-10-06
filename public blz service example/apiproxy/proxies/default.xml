@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ProxyEndpoint name="default">
+    <Description>SOAP proxy generated from http://www.thomas-bayer.com/axis2/services/BLZService?wsdl</Description>
+    <PreFlow name="PreFlow">
+        <Request>
+            <Step>
+                <Name>save-message</Name>
+            </Step>
+        </Request>
+        <Response/>
+    </PreFlow>
+    <Flows>
+        <Flow name="getBank">
+            <Description>getBank</Description>
+            <Request>
+                <Step>
+                    <Name>getBank-extract-query-param</Name>
+                </Step>
+                <Step>
+                    <Name>getBank-build-soap</Name>
+                </Step>
+            </Request>
+            <Response/>
+            <Condition>(proxy.pathsuffix MatchesPath &quot;&#x2F;bank&quot;) and (request.verb = &quot;GET&quot;)</Condition>
+        </Flow>
+        <Flow name="unknown-resource">
+            <Description>Unknown Resource</Description>
+            <Request>
+                <Step>
+                    <Name>unknown-resource</Name>
+                </Step>
+            </Request>
+            <Response/>
+        </Flow>
+    </Flows>
+    <PostFlow name="PostFlow">
+        <Request/>
+        <Response/>
+    </PostFlow>
+    <HTTPProxyConnection>
+        <BasePath>/blzservice</BasePath>
+        <VirtualHost>default</VirtualHost>
+        <VirtualHost>secure</VirtualHost>
+    </HTTPProxyConnection>
+    <RouteRule name="default">
+        <TargetEndpoint>default</TargetEndpoint>
+    </RouteRule>
+</ProxyEndpoint>

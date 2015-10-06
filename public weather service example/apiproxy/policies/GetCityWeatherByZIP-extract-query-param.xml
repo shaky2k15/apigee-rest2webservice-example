@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ExtractVariables async="false" continueOnError="true" enabled="true" name="GetCityWeatherByZIP-extract-query-param">
+    <DisplayName>GetCityWeatherByZIP Extract Query Param</DisplayName>
+    <QueryParam name="ZIP">
+        <Pattern ignoreCase="true">{ZIP}</Pattern>
+    </QueryParam>
+    <IgnoreUnresolvedVariables>true</IgnoreUnresolvedVariables>
+</ExtractVariables>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<AssignMessage async="false" continueOnError="true" enabled="true" name="getBank-build-soap">
+    <DisplayName>getBank Build SOAP</DisplayName>
+    <Add>
+        <Headers>
+            <Header name="SOAPAction"></Header>
+        </Headers>
+    </Add>
+    <Set>
+        <Headers>
+            <Header name="Content-Type">text/xml; charset=utf-8</Header>
+        </Headers>
+        <Payload contentType="text/xml">
+            <soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                <soap:Body>
+                    <getBank xmlns="http://thomas-bayer.com/blz/">
+                        <!--Required-->
+                        <blz>{blz}</blz>
+                    </getBank>
+                </soap:Body>
+            </soap:Envelope>
+        </Payload>
+        <Verb>POST</Verb>
+    </Set>
+    <AssignVariable>
+        <Name>forward.target.url</Name>
+        <Value>http://www.thomas-bayer.com/axis2/services/BLZService</Value>
+    </AssignVariable>
+    <IgnoreUnresolvedVariables>true</IgnoreUnresolvedVariables>
+    <AssignTo createNew="false" transport="http" type="request"/>
+</AssignMessage>

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<APIProxy revision="1" name="Weather">
+    <ConfigurationVersion majorVersion="4" minorVersion="0"/>
+    <CreatedAt>1442775188539</CreatedAt>
+    <CreatedBy>sekhar.a.in@gmail.com</CreatedBy>
+    <Description></Description>
+    <DisplayName>Weather</DisplayName>
+    <LastModifiedAt>1442775188539</LastModifiedAt>
+    <LastModifiedBy>sekhar.a.in@gmail.com</LastModifiedBy>
+    <Policies>
+        <Policy>GetCityForecastByZIP-build-soap</Policy>
+        <Policy>GetCityForecastByZIP-extract-query-param</Policy>
+        <Policy>GetCityWeatherByZIP-build-soap</Policy>
+        <Policy>GetCityWeatherByZIP-extract-query-param</Policy>
+        <Policy>GetWeatherInformation-build-soap</Policy>
+        <Policy>get-response-soap-body</Policy>
+        <Policy>restore-message</Policy>
+        <Policy>save-message</Policy>
+        <Policy>set-response-soap-body</Policy>
+        <Policy>set-target-url</Policy>
+        <Policy>unknown-resource</Policy>
+        <Policy>xml-to-json</Policy>
+    </Policies>
+    <ProxyEndpoints>
+        <ProxyEndpoint>default</ProxyEndpoint>
+    </ProxyEndpoints>
+    <Resources>
+        <Resource>wsdl://_apigeeGeneratedModelFromWsdl.json</Resource>
+    </Resources>
+    <TargetServers/>
+    <TargetEndpoints>
+        <TargetEndpoint>default</TargetEndpoint>
+    </TargetEndpoints>
+</APIProxy>

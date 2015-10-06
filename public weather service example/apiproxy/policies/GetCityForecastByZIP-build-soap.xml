@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<AssignMessage async="false" continueOnError="true" enabled="true" name="GetCityForecastByZIP-build-soap">
+    <DisplayName>GetCityForecastByZIP Build SOAP</DisplayName>
+    <Add>
+        <Headers>
+            <Header name="SOAPAction">http://ws.cdyne.com/WeatherWS/GetCityForecastByZIP</Header>
+        </Headers>
+    </Add>
+    <Set>
+        <Headers>
+            <Header name="Content-Type">text/xml; charset=utf-8</Header>
+        </Headers>
+        <Payload contentType="text/xml">
+            <soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                <soap:Body>
+                    <GetCityForecastByZIP xmlns="http://ws.cdyne.com/WeatherWS/">
+                        <!--Optional-->
+                        <ZIP>{ZIP}</ZIP>
+                    </GetCityForecastByZIP>
+                </soap:Body>
+            </soap:Envelope>
+        </Payload>
+        <Verb>POST</Verb>
+    </Set>
+    <AssignVariable>
+        <Name>forward.target.url</Name>
+        <Value>http://wsf.cdyne.com/WeatherWS/Weather.asmx</Value>
+    </AssignVariable>
+    <IgnoreUnresolvedVariables>true</IgnoreUnresolvedVariables>
+    <AssignTo createNew="false" transport="http" type="request"/>
+</AssignMessage>
